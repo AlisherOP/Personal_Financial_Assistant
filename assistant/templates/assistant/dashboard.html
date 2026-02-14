@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Total Spending</h5>
+          <h2 class="card-text">${{ total_spent }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card mb-3">
+        <div class="card-body text-center">
+          <h3>Ready to scan?</h3>
+          <p>Upload a photo of your receipt and let the AI do the work.</p>
+          <a href="{% url 'upload_receipt' %}" class="btn btn-success btn-lg"
+            >Scan New Receipt</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECEIPTS TABLE -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h5 class="mb-0">Your Receipts</h5>
+        </div>
+        <div class="card-body">
+          {% if expenses %}
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Merchant</th>
+                <th>Amount</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for expense in expenses %}
+              <tr>
+                <td>{{ expense.merchant }}</td>
+                <td>${{ expense.amount }}</td>
+                <td>{{ expense.date|date:"M d, Y" }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <p class="text-muted">No receipts yet. Start by uploading one!</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -2,19 +2,19 @@
 
 An AI-powered Django application that automates expense tracking by extracting merchant names and total amounts from uploaded receipt images using Tesseract OCR and OpenCV.
 
-## 🚀 Features
+# Features
 * **OCR Extraction:** Automated data entry from `.jpg`, `.png`, and `.webp` receipts.
 * **Image Processing:** Uses OpenCV for thresholding and grayscale conversion to improve OCR accuracy.
 * **User Dashboard:** Visual summary of spending habits and history.
 * **Authentication:** Secure user accounts and private data storage.
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **Backend:** Django 6.0
 * **Computer Vision:** OpenCV, PyTesseract (Tesseract OCR)
 * **Database:** SQLite (Development)
 * **Frontend:** Bootstrap 5
 
-## 📦 Installation
+## Installation
 1. Install Tesseract OCR on your system:
    `sudo apt install tesseract-ocr`
 2. Clone the repo:
